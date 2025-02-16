@@ -22,9 +22,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload Files
-        uses: actions/upload-pages-artifact@v4  # Updated to v4
+        uses: actions/upload-pages-artifact@v2  # Use v2 (latest available)
         with:
-          path: "."  # Ensure this points to the correct location of index.html
+          path: "./"  # Ensure this points to the correct location of index.html
           name: github-pages  # Define artifact name explicitly
 
       - name: Deploy to GitHub Pages
