@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Will automatically use ubuntu-24 after migration
 
     steps:
       - name: Checkout Repository
@@ -25,9 +25,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload Files
-        uses: actions/upload-pages-artifact@v2  # ✅ Correct version
+        uses: actions/upload-pages-artifact@v3  # ✅ Updated to v3
         with:
           path: "./"  # Ensure this points to the directory containing index.html
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4  # ✅ Updated to v4
