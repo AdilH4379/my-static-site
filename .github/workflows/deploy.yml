@@ -3,12 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploy when changes are pushed to the main branch
+      - main  # Trigger deployment when pushing to the main branch
 
 permissions:
   contents: read
   pages: write
-  id-token: write  # Required for OIDC authentication
+  id-token: write  # Required for GitHub Pages OIDC authentication
 
 jobs:
   deploy:
@@ -22,10 +22,10 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload files
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2  # Correct version
         with:
-          path: .  # Ensure this points to index.html
-          name: github-pages  # Name the artifact
+          path: "./"  # Ensure this points to your index.html location
+          name: github-pages  # Define artifact name
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
